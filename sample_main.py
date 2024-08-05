@@ -1,6 +1,8 @@
 import requests
 import webbrowser
 from PIL import Image
+import matplotlib.pyplot as plt
+from io import BytesIO
 
 # sets api endpoint to connect to.  If you change the port num be sure to change here as well
 url = "http://localhost:8080/api/graph"
@@ -31,6 +33,11 @@ while generate:
 # For assignment purposes I am launching the url recived in the response.
 # You can change the template in how the data is viewed in a web UI
     webbrowser.open(response.url)
+
+# Load graph from response content
+    im = Image.open(BytesIO(response.content))
+    plt.imshow(im)
+    plt.show()
 
     new = input("Generate a new graph? [Y/N] ")
 
