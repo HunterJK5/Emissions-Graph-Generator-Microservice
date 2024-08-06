@@ -34,7 +34,7 @@ while generate:
 # You can change the template in how the data is viewed in a web UI
     webbrowser.open(response.url)
 
-# Load graph from response content
+# Load graph from response content to display in sample file
     im = Image.open(BytesIO(response.content))
     plt.imshow(im)
     plt.show()
